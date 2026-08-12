@@ -1,0 +1,570 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   ROOT
+========================= */
+
+:root {
+    --content-width: 100%;
+}
+
+
+/* =========================
+   HTML / BODY
+========================= */
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #eae8e8;
+
+    font-family:
+        "National Park",
+        "YakuHanJPs",
+        "Yu Gothic",
+        "Hiragino Sans",
+        serif;
+
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.2rem;
+
+    margin-left: 250px;
+
+    /* text-align: justify; */
+}
+
+
+/* =========================
+   FONTS
+========================= */
+
+@font-face {
+    font-family: "YakuHanJPs";
+    src:
+        url("fonts/yakuhanjps-latin-100-normal.woff2") format("woff2"),
+        url("fonts/yakuhanjps-latin-100-normal.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Pecita";
+    src:
+        url("fonts/Pecita.woff2") format("woff2"),
+        url("fonts/Pecita.woff") format("woff");
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    padding-top: 50px;
+
+    scroll-snap-align: start;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--content-width);
+
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    scroll-snap-align: start;
+
+    font-weight: 300;
+    font-size: 14px;
+    text-align: justify;
+
+    width: var(--content-width);
+
+    /* background-color: red; */
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,
+h2 {
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+
+/* =========================
+   PROJECT
+========================= */
+
+.project {
+    margin-top: 100px;
+}
+
+.project p {
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.project-meta {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    border-top: 1px dotted #333;
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo {
+    width: 75vw;
+
+    display: flex;
+    gap: 0;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    /* background-color: yellow; */
+}
+
+.photo img {
+    width: 150px;
+    height: 100px;
+
+    object-fit: cover;
+
+    cursor: crosshair;
+}
+
+.photo img.large {
+    width: 450px;
+    height: auto;
+}
+
+
+/* =========================
+   TAG
+========================= */
+
+.tag {
+    font-size: 12px;
+
+    display: inline-block;
+
+    padding: 8px 10px 8px 19px;
+
+    border: 1px dotted #333;
+    border-radius: 7px 7px 0 0;
+
+    margin: 0;
+}
+
+
+/* =========================
+   SPAN
+========================= */
+
+span {
+    transform: scaleX(0.9);
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: Pecita;
+}
+
+a:hover {
+    color: black;
+
+    outline: 1px solid #ff1493;
+    outline-offset: 8px;
+
+    z-index: 900;
+}
+
+
+/* =========================
+   BUTTON / TAG
+========================= */
+
+button,
+.tag {
+    background-color: lightgray;
+    border: 2px;
+
+    text-align: center;
+    text-decoration: none;
+
+    letter-spacing: 0.5rem;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TEXT TRANSFORM
+========================= */
+
+h1,
+h2,
+p,
+.project-meta {
+    transform: scaleX(0.9);
+    transform-origin: left center;
+}
+
+
+/* =========================
+   SCROLL LOGO
+========================= */
+
+.scroll-logo {
+    position: fixed;
+
+    top: 50px;
+    left: 50px;
+
+    z-index: 1000;
+}
+
+.scroll-logo img {
+    width: 80px;
+    height: auto;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   INFO MODAL
+========================= */
+
+.info-modal {
+    position: fixed;
+
+    left: 30px;
+    bottom: 30px;
+
+    z-index: 900;
+
+    display: block;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.info-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================
+   INFO CONTENT
+========================= */
+
+.info-content {
+    text-align: left;
+
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+}
+
+
+/* =========================
+   INFO LINKS
+========================= */
+
+.info-content a {
+    font-size: 16px;
+    letter-spacing: 0.2rem;
+}
+
+
+/* =========================
+   CONTACT / ADDRESS
+========================= */
+
+.info-content span {
+    background: #eae8e8;
+    font-size: 10px;
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a,
+.info-content a {
+    position: relative;
+
+    font-family: National Park;
+    font-size: 12px;
+    line-height: 1.7;
+
+    background: #eae8e8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    height: 300px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 767px) {
+
+
+    /* =========================
+       BODY
+    ========================= */
+
+    body {
+        margin-left: 35px;
+        margin-right: 20px;
+        font-size: 14px;
+        line-height: 1.7;
+        letter-spacing: 0.12rem;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 40px;
+        padding-left: 20px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .about p {
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+        width: 100%;
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       PROJECT
+    ========================= */
+
+    .project {
+        margin-top: 70px;
+    }
+
+    .project p {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .project-meta {
+        margin-top: 15px;
+        margin-bottom: 10px;
+
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       HEADINGS
+    ========================= */
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+
+    /* =========================
+       TAG
+    ========================= */
+
+    .tag {
+        font-size: 11px;
+
+        padding: 6px 8px 6px 12px;
+
+        border-radius: 7px 7px 0 0;
+
+        letter-spacing: 0.3rem;
+        margin-bottom: 12px;
+    }
+
+
+    /* =========================
+       PHOTO
+    ========================= */
+
+    .photo {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 0;
+    }
+
+    .photo img {
+        width: 25vw;
+        height: 25vw;
+
+        object-fit: cover;
+
+        cursor: crosshair;
+    }
+
+    .photo img.large {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* =========================
+       LINKS
+    ========================= */
+
+    a {
+        font-size: 20px;
+    }
+
+    a:hover {
+        outline: none;
+    }
+
+
+    /* =========================
+       SCROLL LOGO
+    ========================= */
+
+    .scroll-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .scroll-logo img {
+        width: 55px;
+    }
+
+
+    /* =========================
+       INFO MODAL
+    ========================= */
+
+    .info-modal {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .info-content {
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: 0.1rem;
+    }
+
+    .info-content span {
+        font-size: 13px;
+    }
+
+    .info-content a {
+        font-size: 13px;
+    }
+
+
+    /* =========================
+       SOCIAL LINKS
+    ========================= */
+
+    .social-links {
+        margin-top: 15px;
+    }
+
+    .social-links a,
+    .info-content a {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+        height: 200px;
+    }
+
+}
