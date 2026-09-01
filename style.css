@@ -1,3 +1,8 @@
+
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +10,36 @@
 }
 
 
-/* =========================
-   ROOT
-========================= */
+/* =========================================================
+   ROOT / VARIABLES
+========================================================= */
 
 :root {
     --content-width: 100%;
+
+    --basecolor: black;
+    --pointcolor: rgb(136, 209, 222);
+    --background: rgb(243, 244, 243);
+
+    /* -------------------------
+       Info menu
+    ------------------------- */
+
+    --info-gap: 1px;
+    --info-section-gap: 30px;
+    --contact-gap: 20px;
+
+    --info-link-size: 18px;
+    --info-link-line-height: 1.2;
+
+    --info-link-padding-x: 8px;
+    --info-link-padding-y: 3px;
 }
 
 
-/* =========================
+/* =========================================================
    HTML / BODY
-========================= */
+========================================================= */
 
 html {
     scroll-snap-type: y mandatory;
@@ -24,7 +47,9 @@ html {
 }
 
 body {
-    background-color: #eae8e8;
+    margin-left: 250px;
+
+    background-color: var(--background);
 
     font-family:
         "National Park",
@@ -37,82 +62,90 @@ body {
     font-size: 16px;
     line-height: 1.8;
     letter-spacing: 0.2rem;
-
-    margin-left: 250px;
-
-    /* text-align: justify; */
 }
 
 
-/* =========================
+/* =========================================================
    FONTS
-========================= */
+========================================================= */
 
 @font-face {
     font-family: "YakuHanJPs";
+
     src:
         url("fonts/yakuhanjps-latin-100-normal.woff2") format("woff2"),
         url("fonts/yakuhanjps-latin-100-normal.woff") format("woff");
+
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Pecita";
+
     src:
         url("fonts/Pecita.woff2") format("woff2"),
         url("fonts/Pecita.woff") format("woff");
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about {
-    padding-top: 50px;
+    width: var(--content-width);
+    min-height: 100vh;
 
-    scroll-snap-align: start;
+    padding-top: 50px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: var(--content-width);
+    scroll-snap-align: start;
 
     font-size: 16px;
     font-weight: 400;
 }
 
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-    scroll-snap-align: start;
-
-    font-weight: 300;
-    font-size: 14px;
-    text-align: justify;
-
-    width: var(--content-width);
-
-    /* background-color: red; */
+.about-footer {
+    min-height: 100vh;
+    margin-top: 70px;
 }
 
 
-/* =========================
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    width: var(--content-width);
+
+    scroll-snap-align: start;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    text-align: justify;
+}
+
+
+/* =========================================================
    HEADINGS
-========================= */
+========================================================= */
 
 h1,
 h2 {
-    line-height: 1.4;
     font-weight: 600;
+    line-height: 1.4;
 }
 
 h1 {
+    margin-bottom: 70px;
+
+    font-family: "Pecita";
     font-size: 28px;
 }
 
@@ -121,12 +154,16 @@ h2 {
 }
 
 
-/* =========================
-   PROJECT
-========================= */
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+#projects {
+    padding-top: 70px;
+}
 
 .project {
-    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .project p {
@@ -135,28 +172,50 @@ h2 {
 }
 
 .project-meta {
-    margin-top: 10px;
+    position: relative;
+
+    padding-top: 10px;
     margin-bottom: 10px;
 
-    border-top: 1px dotted #333;
+    font-size: 12px;
+}
+
+.project-meta::before {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    margin-bottom: 10px;
+
+    background-image:
+        radial-gradient(circle, #000 1px, transparent 1px);
+
+    background-size: 5px 2px;
+    background-repeat: repeat-x;
+}
+
+#su .project-meta::before {
+    display: none;
 }
 
 
-/* =========================
+/* =========================================================
    PHOTO
-========================= */
+========================================================= */
 
 .photo {
     width: 75vw;
 
     display: flex;
-    gap: 0;
+    flex-wrap: wrap;
 
     justify-content: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
 
-    /* background-color: yellow; */
+    gap: 0;
 }
 
 .photo img {
@@ -174,75 +233,31 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    TAG
-========================= */
+========================================================= */
 
 .tag {
-    font-size: 12px;
-
     display: inline-block;
 
-    padding: 8px 10px 8px 19px;
+    padding: 6px 8px 6px 16px;
+    margin-bottom: 15px;
 
-    border: 1px dotted #333;
+    background-color: var(--pointcolor);
+
+    border: 2px;
     border-radius: 7px 7px 0 0;
 
-    margin: 0;
-}
-
-
-/* =========================
-   SPAN
-========================= */
-
-span {
-    transform: scaleX(0.9);
-}
-
-
-/* =========================
-   LINKS
-========================= */
-
-a {
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-    font-family: Pecita;
-}
-
-a:hover {
-    color: black;
-
-    outline: 1px solid #ff1493;
-    outline-offset: 8px;
-
-    z-index: 900;
-}
-
-
-/* =========================
-   BUTTON / TAG
-========================= */
-
-button,
-.tag {
-    background-color: lightgray;
-    border: 2px;
-
-    text-align: center;
-    text-decoration: none;
-
+    font-size: 11px;
     letter-spacing: 0.5rem;
 
-    margin-bottom: 15px;
+    text-align: center;
 }
 
 
-/* =========================
-   TEXT TRANSFORM
-========================= */
+/* =========================================================
+   TEXT
+========================================================= */
 
 h1,
 h2,
@@ -253,9 +268,23 @@ p,
 }
 
 
-/* =========================
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+    color: var(--basecolor);
+
+    font-family: "Pecita";
+    font-size: 20px;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
    SCROLL LOGO
-========================= */
+========================================================= */
 
 .scroll-logo {
     position: fixed;
@@ -274,96 +303,150 @@ p,
 }
 
 
-/* =========================
+/* =========================================================
    INFO MODAL
-========================= */
+========================================================= */
 
 .info-modal {
     position: fixed;
 
-    left: 30px;
-    bottom: 30px;
+    left: 25px;
+    bottom: 0px;
 
     z-index: 900;
 
     display: block;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
 
     transition:
         opacity 0.3s ease,
         visibility 0.3s ease;
 }
 
-.info-modal.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-
-/* =========================
-   INFO CONTENT
-========================= */
-
 .info-content {
-    text-align: left;
-
-    font-size: 16px;
+    font-size: 10px;
     line-height: 1;
     letter-spacing: 0.2rem;
 }
 
 
-/* =========================
-   INFO LINKS
-========================= */
+/* =========================================================
+   INFO NAV / SOCIAL
+========================================================= */
 
-.info-content a {
-    font-size: 16px;
-    letter-spacing: 0.2rem;
+.info-nav,
+.social-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--info-gap);
 }
 
 
-/* =========================
-   CONTACT / ADDRESS
-========================= */
+/* =========================================================
+   INFO LINKS
+========================================================= */
 
-.info-content span {
-    background: #eae8e8;
+.info-nav a,
+.social-links a {
+    display: block;
+
+    padding:
+        var(--info-link-padding-y)
+        var(--info-link-padding-x);
+
+    font-family: "Pecita";
+    font-size: var(--info-link-size);
+    line-height: var(--info-link-line-height);
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   INFO NAV
+========================================================= */
+
+.info-nav {
+    margin-bottom: var(--info-section-gap);
+}
+
+.info-nav a {
+    background-color: var(--background);
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.social-links {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+/*
+   通常の gap = 5px
+   CONTACT の margin-top = 20px
+
+   X → CONTACT
+   = 5px + 20px
+   = 25px
+*/
+
+.social-links a:last-child {
+    margin-top: var(--contact-gap);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+a:hover,
+.info-nav a:hover,
+.social-links a:hover {
+    color: var(--pointcolor);
+}
+
+
+/* =========================================================
+   CONTACT / ADDRESS
+========================================================= */
+
+.contact {
+    font-family: "National Park", sans-serif;
+    font-size: 12px;
+}
+
+.contact a {
+    font-family: "National Park", sans-serif;
     font-size: 10px;
 }
 
 
-/* =========================
-   SOCIAL LINKS
-========================= */
+/* =========================================================
+   SCROLL MARGIN
+========================================================= */
 
-.social-links {
-    margin-top: 20px;
-}
-
-.social-links a,
-.info-content a {
-    position: relative;
-
-    font-family: National Park;
-    font-size: 12px;
-    line-height: 1.7;
-
-    background: #eae8e8;
+#about,
+#su,
+#projects {
+    scroll-margin-top: 70px;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer {
     height: 300px;
 }
+
 
 /* =========================================================
    MOBILE
@@ -371,29 +454,28 @@ p,
 
 @media screen and (max-width: 767px) {
 
-
-    /* =========================
+    /* =====================================================
        BODY
-    ========================= */
+    ===================================================== */
 
     body {
         margin-left: 35px;
         margin-right: 20px;
+
         font-size: 14px;
         line-height: 1.7;
         letter-spacing: 0.12rem;
     }
 
 
-    /* =========================
+    /* =====================================================
        ABOUT
-    ========================= */
+    ===================================================== */
 
     .about {
-        width: 100%;
-        min-height: 100vh;
         padding-top: 40px;
         padding-left: 20px;
+
         justify-content: flex-start;
         align-items: center;
     }
@@ -403,41 +485,38 @@ p,
     }
 
 
-    /* =========================
+    /* =====================================================
        MAIN
-    ========================= */
+    ===================================================== */
 
     main {
-        width: 100%;
         font-size: 14px;
     }
 
 
-    /* =========================
+    /* =====================================================
        PROJECT
-    ========================= */
+    ===================================================== */
 
     .project {
         margin-top: 70px;
     }
 
     .project p {
-        margin-top: 10px;
         font-size: 14px;
     }
 
     .project-meta {
         margin-top: 15px;
-        margin-bottom: 10px;
 
         font-size: 12px;
         line-height: 1.7;
     }
 
 
-    /* =========================
+    /* =====================================================
        HEADINGS
-    ========================= */
+    ===================================================== */
 
     h1 {
         font-size: 24px;
@@ -449,42 +528,29 @@ p,
     }
 
 
-    /* =========================
+    /* =====================================================
        TAG
-    ========================= */
+    ===================================================== */
 
     .tag {
-        font-size: 11px;
-
         padding: 6px 8px 6px 12px;
 
-        border-radius: 7px 7px 0 0;
-
+        font-size: 11px;
         letter-spacing: 0.3rem;
-        margin-bottom: 12px;
     }
 
 
-    /* =========================
+    /* =====================================================
        PHOTO
-    ========================= */
+    ===================================================== */
 
     .photo {
         width: 100%;
-
-        display: flex;
-        flex-wrap: wrap;
-
-        gap: 0;
     }
 
     .photo img {
         width: 25vw;
         height: 25vw;
-
-        object-fit: cover;
-
-        cursor: crosshair;
     }
 
     .photo img.large {
@@ -493,9 +559,9 @@ p,
     }
 
 
-    /* =========================
+    /* =====================================================
        LINKS
-    ========================= */
+    ===================================================== */
 
     a {
         font-size: 20px;
@@ -506,9 +572,9 @@ p,
     }
 
 
-    /* =========================
+    /* =====================================================
        SCROLL LOGO
-    ========================= */
+    ===================================================== */
 
     .scroll-logo {
         top: 20px;
@@ -520,51 +586,91 @@ p,
     }
 
 
-    /* =========================
-       INFO MODAL
-    ========================= */
+    /* =====================================================
+       MOBILE INFO MODAL
+    ===================================================== */
 
     .info-modal {
         left: 20px;
         bottom: 20px;
+
+        /*
+           モバイルではメニュー全体を
+           pointcolor の一枚の背景にする
+        */
+
+        padding: 20px 24px 22px 20px;
+
+        background-color: var(--pointcolor);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
     }
 
+    .info-modal.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+
+    /* =====================================================
+       MOBILE INFO CONTENT
+    ===================================================== */
+
     .info-content {
-        font-size: 20px;
+        font-size: 16px;
         line-height: 1;
         letter-spacing: 0.1rem;
     }
 
-    .info-content span {
-        font-size: 13px;
+
+    /* =====================================================
+       MOBILE INFO NAV
+    ===================================================== */
+
+    .info-nav {
+        margin-bottom: var(--info-section-gap);
     }
 
-    .info-content a {
+
+    /* =====================================================
+       MOBILE INFO LINKS
+    ===================================================== */
+
+    .info-nav a,
+    .social-links a {
+        padding: 0;
+
+        background: none;
+
         font-size: 13px;
+        line-height: 1.7;
+
+        color: var(--basecolor);
     }
 
 
-    /* =========================
-       SOCIAL LINKS
-    ========================= */
+    /* =====================================================
+       MOBILE SOCIAL LINKS
+    ===================================================== */
 
     .social-links {
         margin-top: 15px;
-    }
-
-    .social-links a,
-    .info-content a {
-        font-size: 13px;
-        line-height: 1.7;
+        margin-bottom: 0;
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* =====================================================
+       MOBILE CONTACT
+    ===================================================== */
 
-    .footer {
-        height: 200px;
+    .social-links a:last-child {
+        margin-top: var(--contact-gap);
     }
-
 }
+```
