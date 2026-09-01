@@ -447,7 +447,6 @@ a:hover,
     height: 300px;
 }
 
-
 /* =========================================================
    MOBILE
 ========================================================= */
@@ -459,7 +458,7 @@ a:hover,
     ===================================================== */
 
     body {
-        margin-left: 35px;
+        margin-left: 20px;
         margin-right: 20px;
 
         font-size: 14px;
@@ -473,10 +472,13 @@ a:hover,
     ===================================================== */
 
     .about {
-        padding-top: 40px;
-        padding-left: 20px;
+        width: 100%;
+        min-height: 100vh;
 
-        justify-content: flex-start;
+        padding-top: 40px;
+        padding-left: 0;
+
+        justify-content: center;
         align-items: center;
     }
 
@@ -490,6 +492,7 @@ a:hover,
     ===================================================== */
 
     main {
+        width: 100%;
         font-size: 14px;
     }
 
@@ -503,11 +506,13 @@ a:hover,
     }
 
     .project p {
+        margin-top: 10px;
         font-size: 14px;
     }
 
     .project-meta {
         margin-top: 15px;
+        margin-bottom: 10px;
 
         font-size: 12px;
         line-height: 1.7;
@@ -537,6 +542,9 @@ a:hover,
 
         font-size: 11px;
         letter-spacing: 0.3rem;
+
+        /* PCと同じ黒 */
+        color: var(--basecolor);
     }
 
 
@@ -567,10 +575,6 @@ a:hover,
         font-size: 20px;
     }
 
-    a:hover {
-        outline: none;
-    }
-
 
     /* =====================================================
        SCROLL LOGO
@@ -587,28 +591,27 @@ a:hover,
 
 
     /* =====================================================
-       MOBILE INFO MODAL
+       MOBILE MENU
     ===================================================== */
 
     .info-modal {
-        left: 20px;
-        bottom: 20px;
-
         /*
-           モバイルではメニュー全体を
-           pointcolor の一枚の背景にする
+           画面の左端から右端まで
+           一枚の背景にする
         */
 
-        padding: 20px 24px 22px 20px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 20px;
 
         background-color: var(--pointcolor);
 
         opacity: 0;
         visibility: hidden;
-
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
     }
 
     .info-modal.is-open {
@@ -619,28 +622,24 @@ a:hover,
 
 
     /* =====================================================
-       MOBILE INFO CONTENT
+       MENU CONTENT
     ===================================================== */
 
     .info-content {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1;
         letter-spacing: 0.1rem;
     }
 
 
     /* =====================================================
-       MOBILE INFO NAV
+       MENU LINKS
     ===================================================== */
 
-    .info-nav {
-        margin-bottom: var(--info-section-gap);
+    .info-nav,
+    .social-links {
+        gap: 5px;
     }
-
-
-    /* =====================================================
-       MOBILE INFO LINKS
-    ===================================================== */
 
     .info-nav a,
     .social-links a {
@@ -648,16 +647,21 @@ a:hover,
 
         background: none;
 
-        font-size: 13px;
-        line-height: 1.7;
+        /* メニューの中だけ大きくする */
+        font-size: 18px;
+        line-height: 1.5;
 
         color: var(--basecolor);
     }
 
 
     /* =====================================================
-       MOBILE SOCIAL LINKS
+       MENU SECTION
     ===================================================== */
+
+    .info-nav {
+        margin-bottom: 25px;
+    }
 
     .social-links {
         margin-top: 15px;
@@ -666,11 +670,22 @@ a:hover,
 
 
     /* =====================================================
-       MOBILE CONTACT
+       CONTACT
     ===================================================== */
 
     .social-links a:last-child {
-        margin-top: var(--contact-gap);
+        margin-top: 20px;
+    }
+
+
+    /* =====================================================
+       DISABLE HOVER ON MOBILE
+    ===================================================== */
+
+    .info-nav a:hover,
+    .social-links a:hover,
+    .project a:hover {
+        color: var(--basecolor);
+        outline: none;
     }
 }
-```
