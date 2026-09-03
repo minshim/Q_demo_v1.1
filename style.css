@@ -10,6 +10,7 @@
 }
 
 
+
 /* =========================================================
    ROOT / VARIABLES
 ========================================================= */
@@ -36,6 +37,12 @@
     --info-link-padding-y: 3px;
 }
 
+
+
+::selection {
+background: var(--pointcolor);
+color: #fff;
+}
 
 /* =========================================================
    HTML / BODY
@@ -107,6 +114,7 @@ body {
 
     font-size: 16px;
     font-weight: 400;
+        text-align: justify;
 }
 
 .about-footer {
@@ -129,6 +137,8 @@ main {
 
     text-align: justify;
 }
+
+
 
 
 /* =========================================================
@@ -361,6 +371,8 @@ a {
 }
 
 
+
+
 /* =========================================================
    INFO NAV
 ========================================================= */
@@ -450,8 +462,8 @@ a:hover,
     ===================================================== */
 
     body {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 40px;
+      
 
         font-size: 14px;
         line-height: 1.7;
@@ -654,22 +666,26 @@ a:hover,
        横並び
     ===================================================== */
 
-    .social-links {
-        display: flex;
-        flex-direction: row;
+ .social-links {
+    display: flex;
+    flex-direction: row;
 
-        flex-wrap: nowrap;
+    flex-wrap: wrap;
 
-        align-items: center;
-        justify-content: flex-start;
+    align-items: center;
+    justify-content: flex-start;
 
-        gap: 12px;
+    gap: 12px;
 
-        margin-top: 15px;
-        margin-bottom: 0;
+    margin-top: 15px;
+    margin-bottom: 0;
 
-        width: 100%;
-    }
+    width: 100%;
+}
+
+.social-links a:last-child {
+    flex-basis: 100%;
+}
 
     .social-links a {
         display: inline-block;
@@ -699,5 +715,16 @@ a:hover,
         color: var(--basecolor);
         outline: none;
     }
+
+
+
+
+
+
+#about,
+#su,
+#projects {
+    scroll-margin-top: 100px;
+}
 }
 
