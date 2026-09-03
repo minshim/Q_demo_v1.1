@@ -115,7 +115,6 @@ body {
 }
 
 
-
 /* =========================================================
    MAIN
 ========================================================= */
@@ -389,15 +388,6 @@ a {
    CONTACT
 ========================================================= */
 
-/*
-   通常の gap = 5px
-   CONTACT の margin-top = 20px
-
-   X → CONTACT
-   = 5px + 20px
-   = 25px
-*/
-
 .social-links a:last-child {
     margin-top: var(--contact-gap);
 }
@@ -406,6 +396,7 @@ a {
 /* =========================================================
    HOVER
 ========================================================= */
+
 a:hover,
 .info-nav a:hover,
 .social-links a:hover {
@@ -446,6 +437,7 @@ a:hover,
 .footer {
     height: 300px;
 }
+
 
 /* =========================================================
    MOBILE
@@ -543,7 +535,6 @@ a:hover,
         font-size: 11px;
         letter-spacing: 0.3rem;
 
-        /* PCと同じ黒 */
         color: var(--basecolor);
     }
 
@@ -595,11 +586,6 @@ a:hover,
     ===================================================== */
 
     .info-modal {
-        /*
-           画面の左端から右端まで
-           一枚の背景にする
-        */
-
         left: 0;
         right: 0;
         bottom: 0;
@@ -647,7 +633,6 @@ a:hover,
 
         background: none;
 
-        /* メニューの中だけ大きくする */
         font-size: 18px;
         line-height: 1.5;
 
@@ -663,9 +648,35 @@ a:hover,
         margin-bottom: 25px;
     }
 
+
+    /* =====================================================
+       SOCIAL LINKS — MOBILE ONLY
+       横並び
+    ===================================================== */
+
     .social-links {
+        display: flex;
+        flex-direction: row;
+
+        flex-wrap: nowrap;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        gap: 12px;
+
         margin-top: 15px;
         margin-bottom: 0;
+
+        width: 100%;
+    }
+
+    .social-links a {
+        display: inline-block;
+
+        flex: 0 0 auto;
+
+        white-space: nowrap;
     }
 
 
@@ -674,7 +685,7 @@ a:hover,
     ===================================================== */
 
     .social-links a:last-child {
-        margin-top: 20px;
+        margin-top: 0;
     }
 
 
@@ -689,3 +700,4 @@ a:hover,
         outline: none;
     }
 }
+
