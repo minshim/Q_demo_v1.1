@@ -26,15 +26,20 @@
        Info menu
     ------------------------- */
 
-    --info-gap: 1px;
-    --info-section-gap: 30px;
-    --contact-gap: 20px;
+    --info-gap: 0px;
+    --info-section-gap:40px;
+    --contact-gap: 10px;
 
-    --info-link-size: 18px;
+    --info-link-size: 23px;
     --info-link-line-height: 1.2;
 
     --info-link-padding-x: 8px;
     --info-link-padding-y: 3px;
+
+    --info-nav-size: 18px;
+    --social-link-size: 13px;
+
+    --info-link-line-height: 1.2;
 }
 
 
@@ -298,14 +303,14 @@ a {
 .scroll-logo {
     position: fixed;
 
-    top: 50px;
-    left: 50px;
+    top: 40px;
+    left: 45px;
 
     z-index: 1000;
 }
 
 .scroll-logo img {
-    width: 80px;
+    width: 70px;
     height: auto;
 
     cursor: pointer;
@@ -355,7 +360,20 @@ a {
    INFO LINKS
 ========================================================= */
 
-.info-nav a,
+.info-nav a {
+    display: block;
+
+    padding:
+        var(--info-link-padding-y)
+        var(--info-link-padding-x);
+
+    font-family: "Pecita";
+    font-size: var(--info-nav-size);
+    line-height: var(--info-link-line-height);
+
+    text-decoration: none;
+}
+
 .social-links a {
     display: block;
 
@@ -364,7 +382,7 @@ a {
         var(--info-link-padding-x);
 
     font-family: "Pecita";
-    font-size: var(--info-link-size);
+    font-size: var(--social-link-size);
     line-height: var(--info-link-line-height);
 
     text-decoration: none;
@@ -391,7 +409,7 @@ a {
 ========================================================= */
 
 .social-links {
-    margin-top: 20px;
+    margin-top: 6px;
     margin-bottom: 30px;
 }
 
@@ -446,10 +464,41 @@ a:hover,
    FOOTER
 ========================================================= */
 
-.footer {
-    height: 300px;
+.about-footer {
+    position: relative;
 }
 
+.copyright {
+    position: absolute;
+    bottom: 40px;
+    left: 0px;
+
+    font-size: 11px;
+    letter-spacing: 0.08rem;
+    opacity: 0.5;
+    color: var(--pointcolor);
+    /* color: var(--basecolor); */
+    font-weight: 600;
+}
+
+
+.media-title {
+        display: block;
+        font-family: "Pecita";
+        font-size: var(--social-link-size);
+        line-height: var(--info-link-line-height);
+        margin-left: 8px;
+}
+
+@media screen and (max-width: 767px) {
+    .media-title {
+  display: none;
+    }
+
+    .social-links {
+        margin-top: 0;
+    }
+}
 
 /* =========================================================
    MOBILE
@@ -636,20 +685,24 @@ a:hover,
 
     .info-nav,
     .social-links {
-        gap: 5px;
+        gap: 3px;
     }
 
-    .info-nav a,
-    .social-links a {
-        padding: 0;
+.info-nav a {
+    padding: 0;
+    background: none;
+    font-size: var(--info-nav-size);
+    line-height: 1.5;
+    color: var(--basecolor);
+}
 
-        background: none;
-
-        font-size: 18px;
-        line-height: 1.5;
-
-        color: var(--basecolor);
-    }
+.social-links a {
+    padding: 0;
+    background: none;
+    font-size: var(--social-link-size);
+    line-height: 1.5;
+    color: var(--basecolor);
+}
 
 
     /* =====================================================
