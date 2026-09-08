@@ -491,9 +491,14 @@ a:hover,
 }
 
 @media screen and (max-width: 767px) {
+
+
     .media-title {
-  display: none;
-    }
+
+        font-size: 18px;
+        line-height: 1px;
+        margin-left: 0px;
+}
 
     .social-links {
         margin-top: 0;
@@ -699,7 +704,7 @@ a:hover,
 .social-links a {
     padding: 0;
     background: none;
-    font-size: var(--social-link-size);
+    font-size: 18px;
     line-height: 1.5;
     color: var(--basecolor);
 }
